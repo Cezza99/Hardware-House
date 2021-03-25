@@ -1,0 +1,44 @@
+\section{Schema Relazionale}
+
+\subsection{Tabelle}
+\textbf{NEGOZIO} (\textbf{\underline{ID}}, Indirizzo, Citta)\\
+\textbf{MAGAZZINO} (\textbf{\underline{ID}}, Indirizzo, Citta, Volume, Negozio)\\
+\textbf{CONTENUTO\_MAGAZZINO} (\textbf{\underline{Magazzino, Componente}})\\
+\textbf{DIPENDENTE} (\textbf{\underline{CF}}, Nome, Cognome, Stipendio, Data\_Assunzione, Negozio)\\
+\textbf{MANUTENZIONE} (\textbf{\underline{Dipendente,Data}}, Cliente, Tipo)\\
+\textbf{CONSULENZA} (\textbf{\underline{Dipendente, Cliente}})\\
+\textbf{CLIENTE}(\textbf{\underline{ID}}, Nome, Cognome, Email)\\
+\textbf{ACQUISTO} (\textbf{\underline{ID}}, Data, Totale, Negozio, Dipendente, Cliente)\\
+\textbf{ACQUISTO\_COMPONENTI} (\textbf{\underline{ID\_acquisto}}, Concluso)\\
+\textbf{COMPOSIZIONE\_ACQUISTO} (\textbf{\underline{ID\_acquisto, Componente}})\\
+\textbf{ACQUISTO\_PREASSEMBLATI} (\textbf{\underline{ID\_acquisto}}, NomePC)\\
+\textbf{ORDINE} (\textbf{\underline{ID}}, Data\_Ord, Data\_Arr, Acquisto\_componente)\\
+\textbf{PC} (\textbf{\underline{Nome}}, Prezzo, Funzione)\\
+\textbf{CONFIGURAZIONE} (\textbf{\underline{NomePC, Componente}})\\
+\textbf{COMPONENTE} (\textbf{\underline{ID}}, Nome, Tipo, Prezzo, Produttore)\\
+\textbf{REGISTRO\_ORDINI} (\textbf{\underline{Ordine, Componente}})\\
+\textbf{PRODUTTORE} (\textbf{\underline{Nome}}, Email, Telefono)\\
+
+\subsection{Chiavi esterne}
+\textbf{Magazzino.Nwgozio} -------$>$ \textbf{Negozio.ID}\\
+\textbf{Contenuto\_Magazzino.Magazzino} -------$>$ \textbf{Magazzino.ID}\\
+\textbf{Contenuto\_Magazzino.Componente} -------$>$ \textbf{Componente.ID}\\
+\textbf{Dipendente.Negozio} -------$>$ \textbf{Negozio.ID}\\
+\textbf{Manutenzione.Cliente} -------$>$ \textbf{Cliente.ID}\\
+\textbf{Manutenzione.Dipendente} -------$>$ \textbf{Dipendente.CF}\\
+\textbf{Consulenza.Dipendente} -------$>$ \textbf{Dipendente.CF}\\
+\textbf{Consulenza.Cliente} -------$>$ \textbf{Cliente.ID}\\
+\textbf{Acquisto.Negozio} -------$>$ \textbf{Negozio.ID}\\
+\textbf{Acquisto.Dipendente} -------$>$ \textbf{Dipendente.CF}\\
+\textbf{Acquisto.Cliente} -------$>$ \textbf{Cliente.ID}\\
+\textbf{Acquisto\_Componenti.ID\_Acquisto} -------$>$ \textbf{Acquisto.ID}\\
+\textbf{Composizione\_Acquisto.ID\_Acquisto} -------$>$ \textbf{Acquisto.ID}\\
+\textbf{Composizione\_Acquisto.Componente} -------$>$ \textbf{Componente.ID}\\
+\textbf{Acquisto\_Preassemblati.ID\_Acquisto} -------$>$ \textbf{Acquisto.ID}\\
+\textbf{Acquisto\_Preassemblati.NomePC} -------$>$ \textbf{PC.Nome}\\
+\textbf{Ordine.Acquisto\_Componente} -------$>$ \textbf{Acquisto\_Componenti.ID\_Acquisto}\\
+\textbf{Configurazione.NomePC} -------$>$ \textbf{PC.Nome}\\
+\textbf{Configurazione.Componente} -------$>$ \textbf{Componente.ID}\\
+\textbf{Componente.Produttore} -------$>$ \textbf{Produttore.Nome}\\
+\textbf{Registro\_Ordini.Ordine} -------$>$ \textbf{Ordine.ID}\\
+\textbf{Registro\_Ordini.Componente} -------$>$ \textbf{Componente.ID}\\

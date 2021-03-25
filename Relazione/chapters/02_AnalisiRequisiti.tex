@@ -1,0 +1,153 @@
+\section{Analisi dei Requisiti}
+\subsection{Descrizione testuale dei requisiti e operazioni tipiche}
+Lo scopo del progetto è quello di realizzare una base di dati che raccolga e permetta 							l'elaborazione di 	informazioni atte alla gestione efficace dei negozi della catena.\\ 
+Per fare ciò si vogliono indicare le informazioni relative al negozio, a partire dal personale, dai 		componenti presenti in magazzino e le informazioni necessarie alla vendita di pc pre-							assemblati e/o di componenti e per la riparazione di quest'ultimi.\par
+
+Le informazioni necessarie alla rappresentazione di un \textbf{negozio} sono un \underline{ID} che identifica univocamente un negozio, un \underline{indirizzo} che indica la locazione del negozio e una \underline{citta'} che presenta il nome delle citta' in cui e' situato il negozio.\par
+Ogni negozio ha un \textbf{magazzino} dove mantiene i componenti pronti alla vendita, i magazzini sono caratterizzati da un \underline{ID}, da un \underline{indirizzo} e da una \underline{città}. Inoltre come informazione aggiuntiva si presenta il \underline{volume} in metri cubi del magazzino.\par
+I \textbf{componenti} hardware che sono presenti o meno nel magazzino sono identificati anche loro da un \underline{ID}, dal \underline{nome} del modello e dal \underline{prezzo} associato ad essi. Si suddividono ovviamente in diversi tipi quali schede madri, CPU, schede video, sistemi di raffreddamento CPU, RAM, memorie, case e alimentatori.\par
+I componenti sono inoltre associati alle \textbf{case produttrici} che li fabbricano, di cui si mantegono le informazioni relative al \underline{nome della compagnia}, all'\underline{email} e al \underline{contatto telefonico}.\par
+I \textbf{PC pre-assemblati} sono caratterizzati invece da un \underline{nome} univoco, dal \underline{prezzo} e dalla \underline{funzione} principale che il pc con quella determinata configurazione sarà atto a fare.\par
+Ad ogni negozio sono poi associati una serie di \textbf{dipendenti} che si suddividono in commessi, manutentori e consulenti. Essi sono identificati da un \underline{codice fiscale}, \underline{dal nome}, \underline{cognome}, da uno \underline{stipendio} e da una \underline{data di assunzione}.\par I commessi e i consulenti sono a diretto contatto con i \textbf{clienti}, che hanno l'obbligo di 			registrarsi per usufruire dei servizi dati dal negozio. Nella base di dati si mantengono le 						informazioni relative a quest'ultimi riportandone \underline{nome}, \underline{cognome}, un' \underline{email} (se presente) per informarli di offerte pubblicitarie e un \underline{ID} univoco.\par
+Ogni cliente può o meno effettuare degli acquisti, che verranno registrati facendo riferimento 		al negozio in cui sono stati fatti.
+Gli \textbf{acquisti} avranno dunque un \underline{ID}, una \underline{data} che si riferisce a quando è stato effettuato l'acquisto e un \underline{totale} che indica il prezzo totale della merce acquistata.
+Gli acquisti si possono classificare in acquisti di componenti e acquisti di pc pre-assemblati, i quali faranno riferimento relativamente ai componenti e ai pc.\\
+Gli acquisti di componenti a loro volta possono essere conclusi o non, in base alla presenza o meno dei componenti desiderati in magazzino. In quest'ultimo caso il negozio provvederà ad effettuare un ordine dei componenti mancanti in relazione all'acquisto non concluso. In ogni caso l'acquisto viene registrato perchè il cliente paga comunque al momento dell'ordine (se l'ordine non dovesse andare a buon fine il cliente avrà diritto ad un rimborso) .\par
+Un \textbf{ordine} è identificato dall'ID dell'acquisto non concluso, da una \underline{data} in cui l'ordine è stato fatto e da una di \underline{arrivo previsto} dell'ordine.\par
+Infine il negozio ha la necessità di raccogliere e mantenere le informazioni necessarie alla 					\textbf{manutenzione} dei componenti, e ne riporta quindi la \underline{data} della \underline{avvenuta manutenzione} e il \underline{tipo} di manutenzione (riparazione o assemblaggio di componenti). Nella manutenzione viene tenuto conto poi della \underline{durata} di tale manutenzione, al fine di retribuire i lavoratori con un supplemento a ore oltre allo stipendio fisso mensile.
+
+\subsection{Glossario dei Termini}
+
+\begin{tabular}{|c|c|c|}
+\hline
+\rowcolor{LightCyan}
+\textbf{Termine} & \textbf{Significato} & \textbf{Sinonimo/i} \\
+\hline
+\centered{Negozio} & \centered{Sedi in cui si svolgono le mansioni previste da HH} & 
+\centered{Attività commerciale,\\sede}\\
+\hline
+\rowcolor{Gray}
+\centered{Magazzino} & \centered{Stabilimento dove si situano i componenti} &
+\centered{Deposito, stock,\\scorte}\\
+\hline 
+\centered{Componente} & \centered{Pezzo di hardware che compone il pc} & 
+\centered{Parte, pezzo}\\
+\hline
+\rowcolor{Gray}
+\centered{Produttore} & \centered{Compagnia che produce e fornisce i componenti} &
+\centered{Realizzatore,\\fabbricante}\\
+\hline
+\centered{Dipendente} & \centered{Persona che svolge una mansione\\in un determinato negozio} & \centered{Impiegato,\\lavoratore}\\
+\hline
+\rowcolor{Gray}
+\centered{Cliente} & \centered{Individuo che beneficia dei servizi della catena} &
+\centered{Consumatore,\\acquirente}\\
+\hline
+\centered{Acquisto} & \centered{Registrazione dell'avvenuta compravendita\\con il cliente} & \centered{Compravendita,\\cessione}\\
+\hline
+\rowcolor{Gray}
+\centered{Ordine} & \centered{Monitoraggio delle richieste di\\ rifornimenti da parte dei produttori} & \centered{Richiesta, commissione}\\
+\hline
+\centered{Manutenzione} & \centered{Operazione di assemblaggio e\\riparazione componenti} & \centered{Mantenimento}\\
+\hline
+	
+
+\end{tabular}
+
+\subsection{Frasi relative}
+\begin{center}
+\begin{tabular}{|p{17cm}|}
+\hline
+\rowcolor{LightCyan}
+\centered{\textbf{FRASI RELATIVE A NEGOZIO}}\\
+\hline
+Le informazioni necessarie alla rappresentazione di un \textbf{negozio} sono un \underline{ID} che identifica univocamente un negozio, un \underline{indirizzo} che indica la locazione del negozio e una \underline{citta'} che presenta il nome delle citta' in cui e' situato il negozio.
+Ogni negozio ha un \textbf{magazzino} dove mantiene i componenti pronti alla vendita\\
+\hline
+\end{tabular}
+
+\begin{tabular}{|p{17cm}|}
+\hline
+\rowcolor{LightCyan}
+\centered{\textbf{FRASI RELATIVE A MAGAZZINO}}\\
+\hline
+I magazzini sono caratterizzati da un \underline{ID}, da un \underline{indirizzo} e da una \underline{città}. Inoltre come informazione aggiuntiva si presenta il \underline{volume} in metri cubi del magazzino.\\
+\hline
+\end{tabular}
+
+\begin{tabular}{|p{17cm}|}
+\hline
+\rowcolor{LightCyan}
+\centered{\textbf{FRASI RELATIVE A COMPONENTE}}\\
+\hline
+I \textbf{componenti} hardware che sono presenti o meno nel magazzino sono identificati anche loro da un \underline{ID}, dal \underline{nome} del modello e dal \underline{prezzo} associato ad essi. Si suddividono ovviamente in diversi tipi quali schede madri, CPU, schede video, sistemi di raffreddamento CPU, RAM, memorie, case e alimentatori.\\
+\hline
+\end{tabular}
+
+\begin{tabular}{|p{17cm}|}
+\hline
+\rowcolor{LightCyan}
+\centered{\textbf{FRASI RELATIVE A PRODUTTORE}}\\
+\hline
+I componenti sono inoltre associati alle \textbf{case produttrici} che li fabbricano, di cui si mantegono le informazioni relative al \underline{nome della compagnia}, all'\underline{email} e al \underline{contatto telefonico}.\\
+\hline
+\end{tabular}
+
+\begin{tabular}{|p{17cm}|}
+\hline
+\rowcolor{LightCyan}
+\centered{\textbf{FRASI RELATIVE A PC}}\\
+\hline
+I \textbf{PC pre-assemblati} sono caratterizzati invece da un \underline{nome} univoco, dal \underline{prezzo} e dalla \underline{funzione} principale che il pc con quella determinata configurazione sarà atto a fare.\\
+\hline
+\end{tabular}
+
+\begin{tabular}{|p{17cm}|}
+\hline
+\rowcolor{LightCyan}
+\centered{\textbf{FRASI RELATIVE A DIPENDENTE}}\\
+\hline
+Ad ogni negozio sono poi associati una serie di \textbf{dipendenti} che si suddividono in commessi, manutentori e consulenti. Essi sono identificati da un \underline{codice fiscale}, \underline{dal nome}, \underline{cognome}, da uno \underline{stipendio} e da una \underline{data di assunzione}.\\
+\hline
+\end{tabular}
+
+\begin{tabular}{|p{17cm}|}
+\hline
+\rowcolor{LightCyan}
+\centered{\textbf{FRASI RELATIVE A CLIENTE}}\\
+\hline
+Nella base di dati si mantengono le informazioni relative a quest'ultimi riportandone \underline{nome}, \underline{cognome}, un' \underline{email} per informarli di offerte pubblicitarie e un \underline{ID} univoco.
+Ogni cliente può o meno effettuare degli acquisti, che verranno registrati facendo riferimento al negozio in cui sono stati fatti.\\
+\hline
+\end{tabular}
+
+\begin{tabular}{|p{17cm}|}
+\hline
+\rowcolor{LightCyan}
+\centered{\textbf{FRASI RELATIVE AD ACQUISTO}}\\
+\hline
+Gli \textbf{acquisti} avranno dunque un \underline{ID}, una \underline{data} che si riferisce a quando è stato effettuato l'acquisto e un \underline{totale} che indica il prezzo totale della merce acquistata.
+Gli acquisti si possono classificare in acquisti di componenti e acquisti di pc pre-assemblati, i quali faranno riferimento relativamente ai componenti e ai pc.
+Gli acquisti di componenti a loro volta possono essere conclusi o non, in base alla presenza o meno dei componenti desiderati in magazzino. In quest'ultimo caso il negozio provvederà ad effettuare un ordine dei componenti mancanti in relazione all'acquisto non concluso. In ogni caso l'acquisto viene registrato perchè il cliente paga comunque al momento dell'ordine (se l'ordine non dovesse andare a buon fine il cliente avrà diritto ad un rimborso) .\\
+\hline
+\end{tabular}
+
+
+\begin{tabular}{|p{17cm}|}
+\hline
+\rowcolor{LightCyan}
+\centered{\textbf{FRASI RELATIVE AD ORDINE}}\\
+\hline
+Un \textbf{ordine} è identificato dall'ID dell'acquisto non concluso, da una \underline{data} in cui l'ordine è stato fatto e da una di \underline{arrivo previsto} dell'ordine.\\
+\hline
+\end{tabular}
+
+\begin{tabular}{|p{17cm}|}
+\hline
+\rowcolor{LightCyan}
+\centered{\textbf{FRASI RELATIVE A MANUTENZIONE}}\\
+\hline
+Infine il negozio ha la necessità di raccogliere e mantenere le informazioni necessarie alla 					\textbf{manutenzione} dei componenti, e ne riporta quindi la \underline{data} della \underline{avvenuta manutenzione} e il \underline{tipo} di manutenzione (riparazione o assemblaggio di componenti). Nella manutenzione viene tenuto conto poi della \underline{durata} di tale manutenzione, al fine di retribuire i lavoratori con un supplemento a ore oltre allo stipendio fisso mensile.\\
+\hline
+\end{tabular}
+\end{center}
